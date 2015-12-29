@@ -44,3 +44,15 @@ class Test(models.Model):
 	key = models.CharField(max_length=64)
 	name = models.CharField(max_length=64)
 	questions = models.ManyToManyField(Question)
+	
+class StudentSession(models.Model):
+	student = models.ForeignKey(Student, on_delete=models.CASCADE)
+	authToken = (max_length=64)
+	refreshToken = (max_length=64)
+	expireDate = models.DateTimeField()
+	
+class LecturerSession(models.Model):
+	lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
+	authToken = (max_length=64)
+	refreshToken = (max_length=64)
+	expireDate = models.DateTimeField()
